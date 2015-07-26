@@ -10,6 +10,7 @@ Dependencies:
 You need a recent version of pyserial
 pip install --upgrade pyserial
 numpy
+python-psutil
 
 Optional dependencies:
 ----------------------
