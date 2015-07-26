@@ -6,3 +6,5 @@ You need a recent version of pyserial
 pip install --upgrade pyserial
 numpy
 pygame
+
+See main.py as starting point
