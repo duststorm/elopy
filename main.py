@@ -13,7 +13,10 @@ import yaml
 import signal
 
 
-def main(visualize=False):
+def main(visualize=False, callback=None):
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+
     config = yaml.load(open('default_touch.yaml', 'r'))
     touch = elopy.Touch(dconfig=config['touch.hw.elo.Touch'])
     try:
@@ -76,6 +79,8 @@ def main(visualize=False):
             last_position = touch._position
             if visualize:
                 screen.drawPosition(last_position)
+            if callback is not None:
+                callback(last_position)
 
     print 'all done'
 
@@ -176,6 +181,4 @@ def signal_handler(signal, frame):
 
 
 if __name__ == "__main__":
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
     main()
