@@ -11,6 +11,7 @@ You need a recent version of pyserial
 pip install --upgrade pyserial
 numpy
 python-psutil
+python-yaml (required for all demos)
 
 Optional dependencies:
 ----------------------
