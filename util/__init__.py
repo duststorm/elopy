@@ -13,7 +13,7 @@ Distributed under the terms of the GNU General Public License (GPL version 3 or 
 """
 import datetime
 import warnings
-import scipy, numpy
+import numpy
 import sys,os,inspect
 from collections import Iterable
 
@@ -117,14 +117,14 @@ getCurrentDateTimeString = lambda : getCurrentDateTime().strftime("%Y-%m-%d %H:%
 ## faster than the std python equiv's.
 #
 
-pi     = scipy.pi
-dot    = scipy.dot
-sin    = scipy.sin
-cos    = scipy.cos
-ar     = scipy.array
-rand   = scipy.rand
-arange = scipy.arange
-rad    = scipy.deg2rad
+pi     = numpy.pi
+dot    = numpy.dot
+sin    = numpy.sin
+cos    = numpy.cos
+ar     = numpy.array
+rand   = numpy.random.rand
+arange = numpy.arange
+rad    = numpy.deg2rad
 
 ###############################################################################
 #
