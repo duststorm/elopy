@@ -9,11 +9,13 @@ Distributed under the terms of the GNU General Public License (GPL version 3 or 
 """
 
 import elopy
+
 import yaml
 import signal
+import time
 
 
-def main(visualize=False, callback=None):
+def main(visualize=False, callback=None, wait=0.01):
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
 
@@ -75,12 +77,14 @@ def main(visualize=False, callback=None):
             run_demo = display.pollWindowEvent()
         touch._poll()
         if touch._position != last_position:
-            print 'Position: %s' % (touch._position, )
             last_position = touch._position
+            position = tuple(map(int, last_position))
+            print 'Position: %s' % (position, )
             if visualize:
-                screen.drawPosition(last_position)
+                screen.drawPosition(position)
             if callback is not None:
-                callback(last_position)
+                callback(position)
+        time.sleep(wait)
 
     print 'all done'
 
@@ -171,7 +175,7 @@ class Screen(object):
         radius = 10
         thickness = 2
         #print "Draw", x, y
-        pygame.draw.circle(self.screen, (255,0,0), (int(x),int(y)), radius, thickness)
+        pygame.draw.circle(self.screen, (255,0,0), (x,y), radius, thickness)
         pygame.display.update()
 
 

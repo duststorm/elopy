@@ -18,7 +18,7 @@ def main():
     mouse = PyMouse()
 
     def move_mouse(pos):
-        x,y = map(int, pos)
+        x,y = pos
         mouse.move(x,y)
         mouse.click(x,y, LMB)
 
