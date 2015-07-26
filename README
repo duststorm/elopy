@@ -1,2 +1,8 @@
-Install newer version of python serial
-sudo pip install --upgrade pyserial
+Standalone pure-Python userspace driver for elo serial touchscreens.
+Based on psychopy's iohub elo touch driver.
+
+Dependencies:
+You need a recent version of pyserial
+pip install --upgrade pyserial
+numpy
+pygame
