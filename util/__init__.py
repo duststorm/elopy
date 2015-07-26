@@ -47,8 +47,6 @@ def module_directory(local_function):
 def isIterable(o):
     return isinstance(o, Iterable)
     
-from dialogs import ProgressBarDialog, MessageDialog, FileDialog, ioHubDialog
-
  
 if sys.platform == 'win32':
     import pythoncom
@@ -341,13 +339,7 @@ def rotate2D(pts,origin,ang=pi/4):
 
 
 ###############################################################################
-#
-## Import utils sub modules
-#    
 
-from dialogs import ProgressBarDialog, MessageDialog, FileDialog, ioHubDialog
-
-###############################################################################
 #
 ## Verify the validity of a given Python release number
 #    
