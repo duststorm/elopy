@@ -4,7 +4,7 @@
 # Main test driver for elopy
 ##
 
-import elotouchdevice
+import elopy
 import yaml
 
 class Display(object):
@@ -83,7 +83,7 @@ class Screen(object):
 def main():
     config = yaml.load(open('default_touch.yaml', 'r'))
     #print config
-    touch = elotouchdevice.Touch(dconfig=config['touch.hw.elo.Touch'])
+    touch = elopy.Touch(dconfig=config['touch.hw.elo.Touch'])
     display = Display()
     print "Display resolution: ", display.getPixelResolution()
     touch.setDisplay(display)
