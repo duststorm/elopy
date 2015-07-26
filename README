@@ -1,0 +1,2 @@
+Install newer version of python serial
+sudo pip install --upgrade pyserial
