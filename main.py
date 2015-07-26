@@ -10,6 +10,7 @@ Distributed under the terms of the GNU General Public License (GPL version 3 or 
 
 import elopy
 import yaml
+import signal
 
 
 def main(visualize=False):
@@ -169,5 +170,12 @@ class Screen(object):
         pygame.display.update()
 
 
+def signal_handler(signal, frame):
+    import os
+    os._exit(0)
+
+
 if __name__ == "__main__":
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
     main()
