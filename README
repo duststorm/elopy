@@ -15,6 +15,9 @@ Optional dependencies:
 ----------------------
 pygame (required for visualize demo)
 pymouse (required for elomouse demo)
+for pymouse on linux: python-xlib
+for pymouse on windows: pywin32 and pyHook
+for pymouse on mac os: Quartz and AppKit
 
 
 Running the application:
