@@ -49,19 +49,24 @@ def isIterable(o):
     
  
 if sys.platform == 'win32':
-    import pythoncom
-    
-    def win32MessagePump():
-        """
-        Pumps the Experiment Process Windows Message Queue so the PsychoPy Window
-        does not appear to be 'dead' to the OS. If you are not flipping regularly
-        (say because you do not need to and do not want to block frequently,
-        you can call this, which will not block waiting for messages, but only
-        pump out what is in the que already. On an i7 desktop, this call method
-        takes between 10 and 90 usec.
-        """
-        if pythoncom.PumpWaitingMessages() == 1:
-            raise KeyboardInterrupt()   
+    try:
+        import pythoncom
+        
+        def win32MessagePump():
+            """
+            Pumps the Experiment Process Windows Message Queue so the PsychoPy Window
+            does not appear to be 'dead' to the OS. If you are not flipping regularly
+            (say because you do not need to and do not want to block frequently,
+            you can call this, which will not block waiting for messages, but only
+            pump out what is in the que already. On an i7 desktop, this call method
+            takes between 10 and 90 usec.
+            """
+            if pythoncom.PumpWaitingMessages() == 1:
+                raise KeyboardInterrupt()
+    except:
+        # pywin32 not available
+        def win32MessagePump():
+            pass
 else:
     def win32MessagePump():
         pass
